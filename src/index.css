@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+button{
+  background: linear-gradient(90.02deg, #06E3EA 0.92%, #5D92FC 99.98%);
+  border-radius: 8px;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+
+}
+button:hover,
+button:focus{
+  /* scale: 1.1; */
+  /* box-shadow: 0 0.5em 0.5em -0.4em #5D92FC; */
+  transform: translateY(-0.25em);
+  /* letter-spacing: 2px;
+  transition: background-color 2.2s;
+  transition-duration: 3s;
+  transition: 1.5s; */
+}
+div{
+  box-sizing: border-box;
+};

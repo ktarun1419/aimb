@@ -1,6 +1,34 @@
 .App {
   text-align: center;
+  position: relative;
+  background: linear-gradient(to top, #140818 0%, #181a33 100%);
+  width: 100vw;
+  /* background: radial-gradient(34.93% 34.93% at 50% 50%, #391946 0%, rgba(82, 37, 100, 0) 100%) warning: gradient uses a rotation that is not supported by CSS and may not behave as expected; */
+
+  /* background: #100B2D; */
+
+  overflow-x: hidden;
+  /* display: flex;
+  justify-content: center; */
+  /* background-color: #2a2b3d;
+  background-color: #23212d;; */
+  /* #23212d; */
+  height: 100vh;
+  overflow-y: auto;
+  
 }
+.copyright{
+  color: #f8f8f8;
+}
+/* .bg{
+  background-image: url("./images/2.png");
+  position: fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  filter: brightness(15%);
+} */
 
 .App-logo {
   height: 40vmin;
