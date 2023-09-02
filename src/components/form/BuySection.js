@@ -9,15 +9,18 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
     const [plan,setPlan]=useState(1)
     const [amount,setAmount]=useState('')
     const [referal,setRefral]=useState('')
-    const approve=()=>{
+    const approve=async()=>{
         let tx={
             from:account,
             to:tokenAddress,
             data:token.methods.approve(stakingAddress,String(amount*10**18)).encodeABI()
         }
-        web3.eth.sendTransaction(tx).then((res)=>{
+       await web3.eth.sendTransaction(tx).then((res)=>{
             console.log({res});
+        }).catch((err)=>{
+            console.log(err);
         })
+        return true
     }
     const checkApproval=()=>{
         let value=false
@@ -30,6 +33,14 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
         return value
     }
   const stakeTokens=async()=>{
+    if (amount<200) {
+        alert('Amount Must Be greater that 200')
+        return
+    }
+    if (!referal) {
+        alert('Please enter referal address')
+        return
+    }
     let apprval=await checkApproval()
   
     let tx={
@@ -38,7 +49,7 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
         data:stake.methods.deposit(account,plan,referal,String(amount*10**18)).encodeABI()
     }
     if (!apprval) {
-        approve()
+       await approve()
     }
     web3.eth.sendTransaction(tx).then((res)=>{
         console.log({res});
