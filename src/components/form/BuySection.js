@@ -10,6 +10,7 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
     const [amount,setAmount]=useState('')
     const [referal,setRefral]=useState('')
     const approve=async()=>{
+        let value=false
         let tx={
             from:account,
             to:tokenAddress,
@@ -17,10 +18,11 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
         }
        await web3.eth.sendTransaction(tx).then((res)=>{
             console.log({res});
+            value=true
         }).catch((err)=>{
             console.log(err);
         })
-        return true
+        return value
     }
     const checkApproval=()=>{
         let value=false
@@ -49,8 +51,12 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
         data:stake.methods.deposit(account,plan,referal,String(amount*10**18)).encodeABI()
     }
     if (!apprval) {
-       await approve()
-    }
+     let approvedAmount=  await approve()
+     if (!approvedAmount) {
+        return
+     }
+    } 
+
     web3.eth.sendTransaction(tx).then((res)=>{
         console.log({res});
     })
