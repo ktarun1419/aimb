@@ -6,6 +6,7 @@ import Instagram from '../../assets/instagram.png'
 import Twitter from '../../assets/twitter.png'
 import { stakingAddress, tokenAddress } from "../../utils/contractAddress";
 import Ai from '../../images/ai_image.png'
+import {  toast } from 'react-toastify';
 const BuySection = ({web3,token,stake ,account,balance}) => {
     const [plan,setPlan]=useState(1)
     const [amount,setAmount]=useState('')
@@ -21,7 +22,7 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
             console.log({res});
             value=true
         }).catch((err)=>{
-            console.log(err);
+         toast.error(err?.message);
         })
         return value
     }
@@ -37,11 +38,11 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
     }
   const stakeTokens=async()=>{
     if (amount<200) {
-        alert('Amount Must Be greater that 200')
+        toast.error('Amount Must Be greater that 200')
         return
     }
     if (!referal) {
-        alert('Please enter referal address')
+        toast.error('Please enter referal address')
         return
     }
     let apprval=await checkApproval()
@@ -60,6 +61,8 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
 
     web3.eth.sendTransaction(tx).then((res)=>{
         console.log({res});
+    }).catch((err)=>{
+        toast.error(err?.message);
     })
   }
   const socialIcons=[
