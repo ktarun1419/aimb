@@ -5,14 +5,14 @@ import Faqs from '../faqs/faqs'
 import Ai from '../../images/ai_image.png'
 const Form = ({web3,token,stake ,account}) => {
     const [balance,setBalance]=useState(0)
-    useEffect(()=>{
-        if (token && account) {
-           token.methods.balanceOf(account).call().then((res)=>{
-            console.log({res});
-            // setBalance((res))
-           }) 
-        }
-    },[account, token])
+    // useEffect(()=>{
+    //     if (token && account) {
+    //        token.methods.balanceOf(account).call().then((res)=>{
+    //         console.log({res});
+    //         // setBalance((res))
+    //        }) 
+    //     }
+    // },[account, token])
   const infoContainer=[{
     title:'Minimum Token',
     value:'200',
