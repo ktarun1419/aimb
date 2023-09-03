@@ -1,9 +1,9 @@
 .App {
   text-align: center;
   position: relative;
-  /* background:url('./images/2.png'); */
-  background: linear-gradient(rgba(33, 33, 33, 0.742), rgba(11, 11, 11, 0.706)),
-  url('./images/2.png');
+  background:url('./images/2.png');
+  /* background: linear-gradient(rgba(33, 33, 33, 0.742), rgba(11, 11, 11, 0.706)),
+  url('./images/2.png'); */
   width: 100vw;
   /* background: radial-gradient(34.93% 34.93% at 50% 50%, #391946 0%, rgba(82, 37, 100, 0) 100%) warning: gradient uses a rotation that is not supported by CSS and may not behave as expected; */
 
