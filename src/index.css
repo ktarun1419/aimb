@@ -37,33 +37,3 @@ button:focus{
 div{
   box-sizing: border-box;
 };
-.connect_app{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: white;
-}
-.App {
-  text-align: center;
-  position: relative;
-  
-  background: linear-gradient(rgba(33, 33, 33, 0.742), rgba(11, 11, 11, 0.706)),
-  url('./images/2.png');
-  width: 100vw;
-  /* background: radial-gradient(34.93% 34.93% at 50% 50%, #391946 0%, rgba(82, 37, 100, 0) 100%) warning: gradient uses a rotation that is not supported by CSS and may not behave as expected; */
-
-  /* background: #100B2D; */
-
-  overflow-x: hidden;
-  /* display: flex;
-  justify-content: center; */
-  /* background-color: #2a2b3d;
-  background-color: #23212d;; */
-  /* #23212d; */
-  height: 100vh;
-  overflow-y: auto;
-  
-}
