@@ -54,9 +54,6 @@ const [tokenInstance,setToken]=useState()
           <button onClick={connectWallet}>Conenct Wallet</button>
           </div>
        }
-     
-      {/* <div className='bg'></div> */}
-      {/* <Content /> */}
     </div>
     </>
   );
