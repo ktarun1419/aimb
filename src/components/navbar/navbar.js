@@ -4,7 +4,7 @@ import Telegram from '../../assets/telegram.png'
 import Instagram from '../../assets/instagram.png'
 import Twitter from '../../assets/twitter.png'
 // import { Web3Button } from '@web3modal/react'
-import Cicaa from '../../assets/cicca.png'
+import AI from '../../images/ai_image.png'
 import Menu from '../../assets/menu.png'
 const Navbar = ({connect,account}) => {
   const [menu,setMenu]=useState(false)
@@ -56,7 +56,7 @@ const Navbar = ({connect,account}) => {
 
       </div>
       <div className='logo_container' onClick={redirect} >
-        <img className='mobile_logo' src={Cicaa}  alt='logo'  />
+        <img className='mobile_logo' src={AI}  alt='logo'  />
         {/* <h1>CICCA</h1> */}
       </div>
       <div className='social-icons'>

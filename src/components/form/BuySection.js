@@ -5,6 +5,7 @@ import Telegram from '../../assets/telegram.png'
 import Instagram from '../../assets/instagram.png'
 import Twitter from '../../assets/twitter.png'
 import { stakingAddress, tokenAddress } from "../../utils/contractAddress";
+import Ai from '../../images/ai_image.png'
 const BuySection = ({web3,token,stake ,account,balance}) => {
     const [plan,setPlan]=useState(1)
     const [amount,setAmount]=useState('')
@@ -95,6 +96,7 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
         </a>))}
         </div>
         <span style={{fontSize:'18px', fontWeight:'bold',color:'#ffff'}}>
+            <img src={Ai} className="logo" />
           STAGE SELLING FAST
         </span>
         <div class="currency_container">

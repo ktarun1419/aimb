@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './form.css'
 import BuySection from './BuySection'
 import Faqs from '../faqs/faqs'
+import Ai from '../../images/ai_image.png'
 const Form = ({web3,token,stake ,account}) => {
     const [balance,setBalance]=useState(0)
     useEffect(()=>{
@@ -80,7 +81,7 @@ const infoContainer2=[
     <div className='form'>
       <div className='form_container'>
       <div className='info_container'>
-        {console.log({balance})}
+        {/* {console.log({balance})} */}
         {Array.isArray(infoContainer) && infoContainer?.map((item)=>(  <div className='each'>
           <div className='child_1' style={{color:'white'}}>
             {item?.title}

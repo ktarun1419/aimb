@@ -5,7 +5,7 @@ import "./sidebar.css";
 // import Token from "../../assets/tokonomics.png";
 // import Feature from "../../assets/features.png";
 // import ROcket from '../../assets/rocket.png'
-import Cicaa from '../../assets/cicca.png'
+import Cicaa from '../../images/ai_image.png'
 const Sidebar = () => {
   const sidebar = [
     {
@@ -32,7 +32,7 @@ const Sidebar = () => {
     <div className="sidebar">
      <div className='logo_container' onClick={redirect} >
         <img className='logo' src={Cicaa}  alt='logo'  />
-        {/* <h1>CICCA</h1> */}
+        <h1>Stake</h1>
       </div>
       {Array.isArray(sidebar) &&
         sidebar.map((item) => (
