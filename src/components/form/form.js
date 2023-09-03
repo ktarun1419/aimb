@@ -8,7 +8,7 @@ const Form = ({web3,token,stake ,account}) => {
         if (token && account) {
            token.methods.balanceOf(account).call().then((res)=>{
             console.log({res});
-            setBalance(parseInt(res)/10**18)
+            // setBalance((res))
            }) 
         }
     },[account, token])
