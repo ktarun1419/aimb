@@ -6,27 +6,59 @@ import "./sidebar.css";
 // import Feature from "../../assets/features.png";
 // import ROcket from '../../assets/rocket.png'
 import Cicaa from '../../images/ai_image.png'
-const Sidebar = () => {
+import { stakingAddress } from "../../utils/contractAddress";
+import {  toast } from 'react-toastify';
+  
+const Sidebar = ({stake,account , web3}) => {
+
+  const withdraw=()=>{
+    let tx={
+        from:account,
+        to:stakingAddress,
+        data:stake.methods.withdraw().encodeABI()
+    }
+    web3.eth.sendTransaction(tx).then((res)=>{
+        console.log({res});
+    }).catch((e)=>{
+        toast.error(e.message)
+    })
+
+  }
+  const earlyUnstake=()=>{
+    let tx={
+        from:account,
+        to:stakingAddress,
+        data:stake.methods.earlyUnstake().encodeABI()
+    }
+    web3.eth.sendTransaction(tx).then((res)=>{
+        console.log({res});
+    }).catch((e)=>{
+        toast.error(e.message)
+    })
+  }
   const sidebar = [
     {
     //   icon: Roadmap,
       title: "Stake",
+      call:function(){}
     },
     {
     //   icon: Token,
       title: "Withdraw",
+      call:withdraw
     },
     {
     //   icon: Feature,
       title: "Early Unstake",
+      call:earlyUnstake
     },
   ];
   const redirect = () => {
-    let a = document.createElement("a");
-    a.target = "_blank";
-    a.href = "https://cicca.io";
-    a.click();
-    a.remove();
+    // let a = document.createElement("a");
+    // a.target = "_blank";
+    // a.href = "https://cicca.io";
+    // a.click();
+    // a.remove();
   };
   return (
     <div className="sidebar">
@@ -36,7 +68,7 @@ const Sidebar = () => {
       </div>
       {Array.isArray(sidebar) &&
         sidebar.map((item) => (
-          <div className="sidebar_each" onClick={redirect}>
+          <div className="sidebar_each" onClick={item?.call}>
             {/* <img src={item?.icon} alt={item?.title} /> */}
             <h2>{item?.title}</h2>
           </div>

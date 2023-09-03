@@ -8,10 +8,12 @@ import Web3 from 'web3';
 import { stakingABI, tokenABI } from './utils/contractABI';
 import { stakingAddress, tokenAddress } from './utils/contractAddress';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [account,setAccount]=useState(null)
   const [web3,setWeb3]=useState()
-    
+  const [section,setSection]=useState(0)
 const [stakingInstance,setStake]=useState()
 const [tokenInstance,setToken]=useState()
   const connectWallet=async()=>{
@@ -36,8 +38,15 @@ const [tokenInstance,setToken]=useState()
     <>
    
     <div className="App">
+      <ToastContainer 
+      position="top-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      />
         <Navbar connect={connectWallet} account={account} />
-      <Sidebar />
+      <Sidebar setSection={setSection} section={section} web3={web3} stake={stakingInstance} account={account} />
       {account ? <>
       <Form token={tokenInstance} stake={stakingInstance} web3={web3} account={account} />
       </> : 
