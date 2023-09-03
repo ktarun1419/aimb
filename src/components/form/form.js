@@ -3,12 +3,12 @@ import './form.css'
 import BuySection from './BuySection'
 import Faqs from '../faqs/faqs'
 const Form = ({web3,token,stake ,account}) => {
-    const [balance,setBalance]=useState(100)
+    const [balance,setBalance]=useState(0)
     useEffect(()=>{
         if (token && account) {
            token.methods.balanceOf(account).call().then((res)=>{
             console.log({res});
-            setBalance(Number(res)/10**18)
+            setBalance(parseInt(res)/10**18)
            }) 
         }
     },[account, token])

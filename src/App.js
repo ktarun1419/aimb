@@ -36,9 +36,17 @@ const [tokenInstance,setToken]=useState()
     <>
    
     <div className="App">
-      <Navbar connect={connectWallet} account={account} />
+        <Navbar connect={connectWallet} account={account} />
       <Sidebar />
+      {account ? <>
       <Form token={tokenInstance} stake={stakingInstance} web3={web3} account={account} />
+      </> : 
+        <div className='connect_app'>
+          <h1>Please connect your wallet</h1>
+          <button onClick={connectWallet}>Conenct Wallet</button>
+          </div>
+       }
+     
       {/* <div className='bg'></div> */}
       {/* <Content /> */}
     </div>
