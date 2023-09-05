@@ -36,6 +36,9 @@ const Sidebar = ({stake,account , web3}) => {
         toast.error(e.message)
     })
   }
+  const claimDailyReward=()=>{
+    toast.error('Rewards will be availbale after every 24 hours')
+  }
   const sidebar = [
     {
     //   icon: Roadmap,
@@ -52,6 +55,11 @@ const Sidebar = ({stake,account , web3}) => {
       title: "Early Unstake",
       call:earlyUnstake
     },
+    {
+        //   icon: Feature,
+          title: "Claim Daily Rewards",
+          call:claimDailyReward
+        },
   ];
   const redirect = () => {
     // let a = document.createElement("a");
@@ -60,6 +68,7 @@ const Sidebar = ({stake,account , web3}) => {
     // a.click();
     // a.remove();
   };
+  
   return (
     <div className="sidebar">
      <div className='logo_container' onClick={redirect} >

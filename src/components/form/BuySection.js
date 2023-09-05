@@ -19,7 +19,7 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
             data:token.methods.approve(stakingAddress,String(amount*10**18)).encodeABI()
         }
        await web3.eth.sendTransaction(tx).then((res)=>{
-            console.log({res});
+        toast.success('Transcation is succesfull!!')
             value=true
         }).catch((err)=>{
          toast.error(err?.message);
@@ -60,7 +60,7 @@ const BuySection = ({web3,token,stake ,account,balance}) => {
     } 
 
     web3.eth.sendTransaction(tx).then((res)=>{
-        console.log({res});
+        toast.success('Transcation is succesfull!!')
     }).catch((err)=>{
         toast.error(err?.message);
     })

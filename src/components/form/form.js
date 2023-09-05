@@ -5,14 +5,25 @@ import Faqs from '../faqs/faqs'
 import Ai from '../../images/ai_image.png'
 const Form = ({web3,token,stake ,account}) => {
     const [balance,setBalance]=useState(0)
-    // useEffect(()=>{
-    //     if (token && account) {
-    //        token.methods.balanceOf(account).call().then((res)=>{
-    //         console.log({res});
-    //         // setBalance((res))
-    //        }) 
-    //     }
-    // },[account, token])
+    useEffect(()=>{
+        if (token && account) {
+           token.methods.balanceOf(account).call().then((res)=>{
+            console.log({res});
+            // setBalance((res))
+            stake.methods.users(account).call().then((data)=>{
+                let obj={
+                    Deposit_Amount:Number(data['depositAmount'])/10**18,
+                    Total_Earnings:data['totalEarnings'],
+                    Referal_Earnings:data['directReferralEarnings'],
+                }
+                // console.log({data});
+
+                setStakeData(obj)
+            })
+           }) 
+        }
+    },[account, token])
+    const [stakeData,setStakeData]=useState({})
   const infoContainer=[{
     title:'Minimum Token',
     value:'200',
@@ -81,7 +92,7 @@ const infoContainer2=[
     <div className='form'>
       <div className='form_container'>
       <div className='info_container'>
-        {/* {console.log({balance})} */}
+        {console.log({balance,stakeData})}
         {Array.isArray(infoContainer) && infoContainer?.map((item)=>(  <div className='each'>
           <div className='child_1' style={{color:'white'}}>
             {item?.title}
@@ -91,16 +102,27 @@ const infoContainer2=[
           </div>
         </div>))}
       </div>
+      <div className='info_container'>
+        {console.log({balance,stakeData})}
+        {Object.keys(stakeData)  && Object.keys(stakeData)?.map((item)=>(  <div className='each'>
+          <div className='child_1' style={{color:'white'}}>
+            {String(item).replace("_",' ')}
+          </div>
+          <div className='child_2'>
+           {Number(stakeData[item])}
+          </div>
+        </div>))}
+      </div>
       <BuySection web3={web3} stake={stake} account={account} token={token} balance={balance} />
       <div className='info_container'>
         <div className='each'>
         <div className='child_1' style={{color:'white'}}>
-            About CICCA
+            About AIMB
           </div>
         </div>
         <div className='each'>
           <div className='child_2' >
-          CiccaDeFi ($CICCA) is an innovative and community-driven cryptocurrency token that aims to provide passive earning opportunities and foster an engaged community. With its unique hold-to-earn mechanism, $CICCA token holders have the potential to earn rewards on every transaction. Specifically, 1% of each transaction is distributed proportionally among existing token holders, allowing them to passively earn income simply by holding $CICCA tokens in their wallets. In addition to the distribution to token holders, 1% of each transaction is directed to an auto liquidity pool, enhancing the token's liquidity, while another 1% is allocated to a staking pool, encouraging further participation and rewarding token holders who actively stake their tokens.
+          Mining AI Block is at the forefront of the blockchain revolution, leveraging the power of artificial intelligence to redefine the landscape of cryptocurrency mining. In an era where energy efficiency, scalability, and sustainability are paramount, Mining AI Block combines cutting-edge technology with eco-conscious practices to deliver a mining experience that's not only lucrative but also environmentally responsible. Join us as we embark on a journey to reshape the future of crypto mining through innovation, efficiency, and sustainability.
           </div>
         </div>
         {/* {Array.isArray(infoContainer) && infoContainer?.map((item)=>(  <div className='each'>

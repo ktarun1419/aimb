@@ -16,22 +16,27 @@ function App() {
 const [stakingInstance,setStake]=useState()
 const [tokenInstance,setToken]=useState()
   const connectWallet=async()=>{
+    try {
       if (window.ethereum) {
-          await window.ethereum.request({method: 'eth_requestAccounts'});
-           let web_3 = new Web3(window.ethereum);
-           setWeb3(web_3)
-           let token_Instance=new web_3.eth.Contract(tokenABI,tokenAddress)
-            let staking_instance=new web_3.eth.Contract(stakingABI,stakingAddress)
-            setToken(token_Instance)
-            setStake(staking_instance)
-          //  stakinginstance.methods
-         web_3.eth.getAccounts().then((res)=>{
-          setAccount(res[0])
-          
-         })
-          return true;
-        }
-        return false;
+        await window.ethereum.request({method: 'eth_requestAccounts'});
+         let web_3 = new Web3(window.ethereum);
+         setWeb3(web_3)
+         let token_Instance=new web_3.eth.Contract(tokenABI,tokenAddress)
+          let staking_instance=new web_3.eth.Contract(stakingABI,stakingAddress)
+          setToken(token_Instance)
+          setStake(staking_instance)
+        //  stakinginstance.methods
+       web_3.eth.getAccounts().then((res)=>{
+        setAccount(res[0])
+        
+       })
+        return true;
+      }
+      return false;
+    } catch (error) {
+      toast.error(error)
+    }
+     
       } 
   return (
     <>
