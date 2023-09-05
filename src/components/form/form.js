@@ -3,7 +3,7 @@ import "./form.css";
 import BuySection from "./BuySection";
 import Faqs from "../faqs/faqs";
 import Ai from "../../images/ai_image.png";
-import Img1 from "../../assets/img1.jpeg";
+import Img1 from "../../assets/Img3.jpeg";
 const Form = ({ web3, token, stake, account }) => {
   const [balance, setBalance] = useState(0);
   useEffect(() => {
@@ -13,7 +13,7 @@ const Form = ({ web3, token, stake, account }) => {
         .call()
         .then((res) => {
           console.log({ res });
-          // setBalance((res))
+          setBalance(Number(res)/10**18)
           stake.methods
             .users(account)
             .call()
