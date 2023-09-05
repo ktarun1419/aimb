@@ -3,6 +3,7 @@ import './form.css'
 import BuySection from './BuySection'
 import Faqs from '../faqs/faqs'
 import Ai from '../../images/ai_image.png'
+import Img1 from '../../assets/img1.jpeg'
 const Form = ({web3,token,stake ,account}) => {
     const [balance,setBalance]=useState(0)
     useEffect(()=>{
@@ -125,14 +126,6 @@ const infoContainer2=[
           Mining AI Block is at the forefront of the blockchain revolution, leveraging the power of artificial intelligence to redefine the landscape of cryptocurrency mining. In an era where energy efficiency, scalability, and sustainability are paramount, Mining AI Block combines cutting-edge technology with eco-conscious practices to deliver a mining experience that's not only lucrative but also environmentally responsible. Join us as we embark on a journey to reshape the future of crypto mining through innovation, efficiency, and sustainability.
           </div>
         </div>
-        {/* {Array.isArray(infoContainer) && infoContainer?.map((item)=>(  <div className='each'>
-          <div className='child_1' style={{color:'white'}}>
-            {item?.title}
-          </div>
-          <div className='child_2'>
-           {item?.value}
-          </div>
-        </div>))} */}
       </div>
 
       </div>
@@ -147,6 +140,7 @@ const infoContainer2=[
            {item?.value}
           </div>
         </div>))}
+        <img width={'100%'} src={Img1} className='content_img'  />
       </div>
      {/* {Array.isArray(infoContainer) && infoContainer?.map((item)=>(  <div className='each'>
           <div className='child_1' style={{color:'white'}}>

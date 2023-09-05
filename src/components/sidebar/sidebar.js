@@ -5,9 +5,10 @@ import "./sidebar.css";
 // import Token from "../../assets/tokonomics.png";
 // import Feature from "../../assets/features.png";
 // import ROcket from '../../assets/rocket.png'
-import Cicaa from '../../images/ai_image.png'
+import Cicaa from '../../assets/logo.jpeg'
 import { stakingAddress } from "../../utils/contractAddress";
 import {  toast } from 'react-toastify';
+import Img2 from '../../assets/img2.jpeg'
   
 const Sidebar = ({stake,account , web3}) => {
 
@@ -82,16 +83,17 @@ const Sidebar = ({stake,account , web3}) => {
             <h2>{item?.title}</h2>
           </div>
         ))}
-        {/* <div className="rocket">
 
-          <img src={ROcket} />
+        <div className="rocket">
+
+          <img src={Img2} />
           <p>
             Update New Feature
           </p>
           <button onClick={redirect}>
             Coming Soon ..
           </button>
-        </div> */}
+        </div>
     </div>
   );
 };
